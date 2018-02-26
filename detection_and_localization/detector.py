@@ -36,7 +36,7 @@ def det(im_path,net,meta,conf_thres=0.001,nms=0.45):
 
     # --parse results
     cls = -1
-    prob = -1
+    conf = -1
     x = -1
     y = -1
     w = -1
@@ -53,7 +53,7 @@ def det(im_path,net,meta,conf_thres=0.001,nms=0.45):
     for line in res:
         cls_name = line[0]
         cls = classes.index(cls_name)
-        prob = line[1]
+        conf = line[1]
         bb = line[2]
 
         # convert bb
@@ -62,6 +62,6 @@ def det(im_path,net,meta,conf_thres=0.001,nms=0.45):
         w = bb[2] / im_w
         h = bb[3] / im_h
 
-        results.append([cls,prob,x,y,w,h])
+        results.append([cls,conf,x,y,w,h])
 
     return results

@@ -13,12 +13,15 @@ if __name__ == "__main__":
     # --init detector
     net, meta = init_detector(model_cfg_name=cfg_file_name, model_weights_name=weights_file_name)
     # --detect and localization
-    res = det(im_path,net,meta)
+    res = det(im_path,net,meta) #[cls,conf,x,y,w,h]
 
     if len(res)==0:
         print('No goods detected!')
+
     # --recognition
-    print('end')
+
+
+    # --plot bb on image
 
 
 
