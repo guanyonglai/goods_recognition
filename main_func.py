@@ -1,4 +1,5 @@
 import os
+import datetime
 
 from detection_and_localization.detector import init_detector,det
 
@@ -13,7 +14,11 @@ if __name__ == "__main__":
     # --init detector
     net, meta = init_detector(model_cfg_name=cfg_file_name, model_weights_name=weights_file_name)
     # --detect and localization
+    stime = datetime.datetime.now()
     res = det(im_path,net,meta) #[cls,conf,x,y,w,h]
+    etime = datetime.datetime.now()
+
+    print ("\ndur:%s"%(etime-stime))
 
     if len(res)==0:
         print('No goods detected!')

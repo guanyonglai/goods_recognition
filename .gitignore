@@ -1,0 +1,8 @@
+# model data
+model
+# image data
+data
+# compile folder
+.idea
+
+*.pyc
